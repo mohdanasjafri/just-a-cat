@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="JUST A CAT — a cozy browser life-sim about a cat managing a human's apartment.">
+  <title>JUST A CAT — Apparently, someone has to run this house.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <div class="logo">JUST A CAT</div>
+        <div class="tagline">Apparently, someone has to run this house.</div>
+      </div>
+      <div class="stats">
+        <span>DAY <b id="day">1</b></span>
+        <span>❤️ <b id="happy">75</b></span>
+        <span>🍗 <b id="hunger">75</b></span>
+        <span>⚡ <b id="energy">100</b></span>
+        <span>🪙 <b id="money">50</b></span>
+      </div>
+    </header>
+
+    <main>
+      <section id="titleScreen" class="screen active">
+        <div class="title-art">
+          <div class="window moon"></div>
+          <div class="cat-big">🐈</div>
+          <div class="plant-art">🪴</div>
+        </div>
+        <p class="eyebrow">A COZY MINI LIFE SIM</p>
+        <h1>JUST A CAT</h1>
+        <p class="hero-copy">Your human is away. The plants need water. The kitchen is a disaster. And you are... a cat.</p>
+        <button id="startBtn" class="primary">START CAT LIFE</button>
+        <button id="demoBtn" class="secondary">DEMO MODE</button>
+        <p class="tiny">WASD / Arrow Keys to move · E to interact · P to pause</p>
+      </section>
+
+      <section id="gameScreen" class="hidden">
+        <div class="game-wrap">
+          <canvas id="game" aria-label="Apartment game world"></canvas>
+          <div id="toast" class="toast"></div>
+          <div id="interaction" class="interaction">Walk near something and press <b>E</b></div>
+          <div class="task-panel">
+            <b id="timeLabel">MORNING</b>
+            <span id="objective">Keep the house alive.</span>
+            <div class="progress"><i id="timeProgress"></i></div>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="card">
+            <h3>🐈 CAT STATUS</h3>
+            <div class="barrow">Happiness <div class="bar"><i id="happyBar"></i></div></div>
+            <div class="barrow">Hunger <div class="bar"><i id="hungerBar"></i></div></div>
+            <div class="barrow">Energy <div class="bar"><i id="energyBar"></i></div></div>
+          </div>
+
+          <div class="card">
+            <h3>🏠 HOME</h3>
+            <div class="barrow">Cleanliness <div class="bar"><i id="cleanBar"></i></div></div>
+            <p class="small">Plants: <b id="plants">0</b> · Harvests: <b id="harvests">0</b></p>
+          </div>
+
+          <div class="card">
+            <h3>📋 TODAY</h3>
+            <ul id="log"></ul>
+          </div>
+
+          <div class="card">
+            <h3>🎮 CONTROLS</h3>
+            <p class="small"><b>WASD / Arrows</b> Move<br><b>E</b> Interact<br><b>P</b> Pause<br><b>R</b> Restart day</p>
+          </div>
+        </aside>
+      </section>
+
+      <section id="pauseScreen" class="screen hidden">
+        <div class="modal">
+          <p class="eyebrow">TIME IS PAUSED</p>
+          <h2>Cat needs a break.</h2>
+          <button id="resumeBtn" class="primary">RESUME</button>
+          <button id="restartBtn" class="secondary">RESTART DAY</button>
+        </div>
+      </section>
+
+      <section id="endScreen" class="screen hidden">
+        <div class="modal end">
+          <p class="eyebrow">DAY 14 COMPLETE</p>
+          <h2 id="endingTitle">THE HUMAN IS HOME.</h2>
+          <p id="endingText"></p>
+          <div id="report" class="report"></div>
+          <button id="againBtn" class="primary">PLAY AGAIN</button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
